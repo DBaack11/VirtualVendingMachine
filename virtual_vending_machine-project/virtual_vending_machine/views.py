@@ -13,7 +13,7 @@ def soda_list(request):
     if request.method == 'GET':
         sodas = Soda.objects.all()
         serializer = SodaSerializer(sodas, many=True)
-        return JsonResponse({'sodas': serializer.data})
+        return JsonResponse(serializer.data, safe=False)
 
     if request.method == 'POST':
         serializer = SodaSerializer(data=request.data)
