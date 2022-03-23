@@ -15,8 +15,6 @@ def soda_list(request):
         serializer = SodaSerializer(sodas, many=True)
         return JsonResponse({'sodas': serializer.data})
 
-# Use JsonResponse if you just want JSON
-
     if request.method == 'POST':
         serializer = SodaSerializer(data=request.data)
         if serializer.is_valid():
@@ -35,7 +33,7 @@ def soda_info(request, name):
 
     if request.method == 'GET':
         serializer = SodaSerializer(soda)
-        return Response(serializer.data)
+        return JsonResponse(serializer.data)
 
     elif request.method == 'PUT':
         serializer = SodaSerializer(soda, data=request.data)

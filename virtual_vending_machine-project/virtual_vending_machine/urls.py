@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sodas', views.soda_list),
     path('sodas/<str:name>', views.soda_info),
-    # change to <int:id> if you want to access by id
+
 ]
