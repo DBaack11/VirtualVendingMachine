@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from virtual_vending_machine import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sodas', views.soda_list),
+    path('sodas/<str:name>', views.soda_info),
+    # change to <int:id> if you want to access by id
 ]
