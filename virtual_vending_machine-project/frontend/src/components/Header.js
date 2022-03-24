@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default function Header({ balance }) {
+export default function Header() {
     return (
         <div className='Header'>
-            <h2>ColaCo Virtual Vending Machine</h2>
-            <h3>Available Balance: ${balance.toFixed(2)}</h3>
+            <h1>ColaCo Virtual Vending Machine</h1>
         </div>
     )
 }
