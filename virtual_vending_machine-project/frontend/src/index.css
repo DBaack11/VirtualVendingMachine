@@ -47,17 +47,23 @@ body {
   width: 118px;
 }
 
-.Soda > h3 {
-  margin-left: -33%;
+.soda-name {
+  margin-left: -42%;
   margin-bottom: 0px;
   z-index: 1;
   transform: rotate(-25deg);
-  min-width: 52px;
+  min-width: 100px;
 }
 
 .soda-info {
-  margin-left: 15%;
-  min-width: 90px;
+  margin-right: -60px;
+  margin-left: 5%;
+  max-width: 140px;
+  min-width: 100px;
+}
+
+.soda-description {
+  font-size: 0.8rem;
 }
 
 .purchase-button {

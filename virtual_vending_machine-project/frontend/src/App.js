@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import VendingMachine from "./components/VendingMachine";
 import { useState, useEffect } from "react"
 
@@ -14,7 +13,6 @@ function App() {
 
   return (
     <div>
-      <Header />
       <VendingMachine data={data} />
     </div>
   );
