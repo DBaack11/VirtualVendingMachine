@@ -76,29 +76,41 @@ export default function Soda({ soda, balance, childSetBalance }) {
 
     const handleClick = () => {
         setNewBalance(parseFloat(balance) - parseFloat(soda.cost))
-        balance == 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
+        balance === 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
     }
 
     return (
         <div className='SodaContainer'>
             <div className='Soda'>
-                <img src={sodaImage} alt='Soda Image' />
+                <img src={sodaImage} alt='Soda Can' />
                 <h3 className='soda-name'>{soda.name}</h3>
                 <div className='soda-info'>
-                    <p className='soda-description'>{soda.description}</p>
+                    <h2>{soda.name}</h2>
+                    <hr />
                     <p className='soda-cost'>${soda.cost} </p>
-                    <p className='soda-quantity'>{availableQuantity} Sodas Left</p>
+
+                    <p className='soda-description'>{soda.description}</p>
+                    <hr />
+                    <p className='soda-quantity'><span>{availableQuantity}</span> Sodas Left</p>
                 </div>
             </div>
-            <InsufficientFundsModal title="Insufficient Funds">
-                <p>You are unable to complete this purchase due to insufficient funds.</p>
-                <p>Your current balance is ${balance}.</p>
-                <p>Would you like to replenish your funds?</p>
+            <InsufficientFundsModal>
+                <div className='modal'>
+                    <h2>Insufficient Funds</h2>
+                    <hr />
+                    <p>You are unable to complete this purchase due to insufficient funds.</p>
+                    <p>Your current balance is <span className='modal-span'>${balance}</span>.</p>
+                    <p>Would you like to replenish your funds?</p>
+                </div>
             </InsufficientFundsModal>
-            <ConfirmPurchaseModal title="Confirm Purchase">
-                <p>You are purchasing this item for ${soda.cost}.</p>
-                <p>Your new balance will be ${newBalance}.</p>
-                <p>Click the button to confirm your purchase.</p>
+            <ConfirmPurchaseModal>
+                <div className='modal'>
+                    <h2>Confirm Purchase</h2>
+                    <hr />
+                    <p>You are purchasing this item for <span className='modal-span'>${soda.cost}</span>.</p>
+                    <p>Your new balance will be <span className='modal-span'>${newBalance.toFixed(2)}</span>.</p>
+                    <p>Click the button to confirm your purchase.</p>
+                </div>
             </ConfirmPurchaseModal>
             <button className='purchase-button' onClick={handleClick}>Purchase Soda</button>
         </div>
