@@ -3,6 +3,20 @@
 
 ## How To Use/Interact
  This project is deployed and hosted online at https://colaco.vercel.app/. The API is deployed and hosted at https://dbaack.pythonanywhere.com/sodas.
+ 
+ ### OR
+ 
+ There is a 'requirements.txt' which includes all the necessary packages to run the project locally. 
+ If you clone this repo:
+ - Confirm you are in the most parent folder 'VirtualVendingMachine' and activate the virtual environment with ```. .venv/bin/activate```
+ - Then ```cd virtual_vending_machine-project``` 
+ - followed by running the requirements.txt file with ```pip install -r requirements.txt```
+ - If successful, start the API with ```python3 manage.py runserver```
+ - Open a new terminal tab and navigate to 'virtual_vending_machine-project/frontend' and run ```npm start```
+ - You will then need to swap out three separate API fetch URLs:
+     - App.js: swap ```https://dbaack.pythonanywhere.com/sodas``` with ```http://localhost:8000/sodas```
+     - Soda.js, line 19: swap ```https://dbaack.pythonanywhere.com/sodas/${soda.name}``` with ```http://localhost:8000/sodas/${soda.name}```
+     - Soda.js, line 84: swap ```https://dbaack.pythonanywhere.com/sodas/${soda.name}``` with ```http://localhost:8000/sodas/${soda.name}```
 
 ## Mock Situtation
  The company ColaCo has requested a virtual vending machine to be built for their new line of virtual sodas. Each soda has a unique cost and available quantity. The team has requested the ability to easily change any product information.
