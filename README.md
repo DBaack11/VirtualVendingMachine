@@ -2,11 +2,10 @@
  A virtual vending machine implementation built with Python (Django Rest Framework) and React. The frontend and API are deployed with [Vercel](https://vercel.com) and [PythonAnywhere](https://www.pythonanywhere.com), respectively.
 
 ## How To Use/Interact
- This project is deployed and hosted online at https://colaco.vercel.app/. The API is deployed and hosted at https://dbaack.pythonanywhere.com/sodas.
- #### This is the most convenient way to observe and use this application.
+ This project is deployed and hosted online at https://colaco.vercel.app/. The API is deployed and hosted at https://dbaack.pythonanywhere.com/sodas. (This is the most convenient way to observe and use this application.)
  
  ### Running Locally
-  If you want to run clone this repo and run it locally, there is a 'requirements.txt' which includes all the necessary packages.
+  If you want to clone this repo and run it locally, there is a 'requirements.txt' which includes all the necessary packages.
   Instructions:
  - Confirm you are in the most parent folder 'VirtualVendingMachine' and activate the virtual environment with ```. .venv/bin/activate```
  - Then ```cd virtual_vending_machine-project``` 
