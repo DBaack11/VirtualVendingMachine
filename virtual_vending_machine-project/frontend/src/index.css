@@ -4,16 +4,8 @@
   font-weight: normal;
   src: local('Loki Cola Regular'), url('LOKICOLA.woff') format('woff');
   }
+
   
-
-  @font-face {
-  font-family: 'CocaCola Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local('CocaCola Regular'), url('cocacola.woff') format('woff');
-  }
-
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
