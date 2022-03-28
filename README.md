@@ -20,4 +20,4 @@
 ## API Routes
   - '[admin](https://dbaack.pythonanywhere.com/admin)' route returns the admin access panel, which is protected by a username/password login.
   - '[sodas](https://dbaack.pythonanywhere.com/sodas)' route returns the list of all existing Soda objects
-  - '[sodas/~soda_name~](https://dbaack.pythonanywhere.com/sodas/Fizz)' route returns the JSON for the specific Soda object. (Fizz in example)
+  - '[sodas/{soda_name}](https://dbaack.pythonanywhere.com/sodas/Fizz)' route returns the JSON for the specific Soda object. (Fizz in example)
