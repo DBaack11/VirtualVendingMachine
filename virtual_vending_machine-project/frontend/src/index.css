@@ -319,7 +319,28 @@ body {
 
 @media only screen and (max-width: 575px){
   .VendingMachineContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+  }
+
+  .VendingMachine {
+    max-width: 80%;
+  }
+
+  .RightColumn {
+    width: 80%;
+  }
+
+  .replenish-button {
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+  .BalanceContainer {
+    padding-bottom: 15px;
+  }
+
+  .links-button-container  {
+    margin-bottom: 15px;
   }
 }
