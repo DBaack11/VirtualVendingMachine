@@ -114,17 +114,18 @@ body {
 .purchase-button {
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  background: linear-gradient(90deg, #d10203 1.18%, #e54242 100%);
+  background-color: #e54242;
   color: white;
   border: none;
   font-size: 1.25rem;
   padding: 10px;
   box-shadow: 3px 3px 3px #292929;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .purchase-button:hover {
-  opacity: 75%;
+  background-color: #d10203;
+  cursor: pointer;
 }
 
 .purchase-button:active {
@@ -204,7 +205,7 @@ body {
 .replenish-button {
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  background: linear-gradient(90deg, #d10203 1.18%, #e54242 100%);
+  background-color: #e54242;
   color: white;
   border: none;
   font-size: 1.25rem;
@@ -214,7 +215,8 @@ body {
 }
 
 .replenish-button:hover {
-  opacity: 80%;
+  background-color: #d10203;
+  cursor: pointer;
 }
 
 .replenish-button:active {
@@ -260,7 +262,7 @@ body {
 .links-button {
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  background: linear-gradient(90deg, #d10203 1.18%, #e54242 100%);
+  background-color: #e54242;
   color: white;
   text-decoration: none;
   border: none;
@@ -270,14 +272,54 @@ body {
   transition: 0.2s;
   min-width: 150px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .links-button:hover {
-  opacity: 80%;
+  background-color: #d10203;
+  cursor: pointer;
 }
 
 .links-button:active {
-  background-color: #3e8e41;
   box-shadow: 0 1px #664;
   transform: translate(2px, 2px);
+}
+
+@media only screen and (max-width: 1099px) {
+  .BalanceContainer {
+      height: 30%;
+    }
+
+  .LinksContainer {
+      height: 30%;
+    }
+
+  .replenish-button {
+      margin-top: 30px;
+    }
+
+  .RightColumn {
+    justify-content: start;
+  }
+    
+}
+
+@media only screen and (max-width: 1040px){
+  .bottom-links-container {
+    flex-direction: column;
+    margin-top: -10px;
+  }
+
+  .bottom-links-container > a {
+    margin-bottom: 20px;
+  }
+
+  
+}
+
+@media only screen and (max-width: 575px){
+  .VendingMachineContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }
