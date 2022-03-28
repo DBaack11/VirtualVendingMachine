@@ -21,6 +21,15 @@ export default function Soda({ soda, balance, childSetBalance }) {
             .then(data => setData(data))
     }, [soda.name])
 
+    // useModal() custom hook used to activate a modal when a purchase is attempted with an out of stock item
+    const [InsufficientQuantityModal, toggleInsufficientQuantityModal] = useModal({
+        withBackground: {
+            closable: true
+        },
+        withCloseButton: true,
+        withControlButton: false,
+    });
+
     // useModal() custom hook used to activate a modal when a purchase is attempted with insufficient funds
     const [InsufficientFundsModal, toggleInsufficientFundsModal] = useModal({
         withBackground: {
@@ -94,12 +103,15 @@ export default function Soda({ soda, balance, childSetBalance }) {
         toggleInsufficientFundsModal()
     }
 
-    // Arrow function 'handleClick' used to check whether the user's funds are sufficient
-    // for the attempted purchase and toggles the approriate modal
+    // Arrow function 'handleClick' used to check whether the user's funds and the item's quantity
+    // are sufficient for the attempted purchase and toggles the approriate modal
     const handleClick = () => {
         setNewBalance(parseFloat(balance) - parseFloat(soda.cost))
         const testBalance = parseFloat(balance) - parseFloat(soda.cost)
-        testBalance < 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
+
+        availableQuantity === 0
+            ? toggleInsufficientQuantityModal()
+            : testBalance < 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
     }
 
     return (
@@ -117,13 +129,21 @@ export default function Soda({ soda, balance, childSetBalance }) {
                     <p className='soda-quantity'><span>{availableQuantity}</span> Sodas Left</p>
                 </div>
             </div>
+            <InsufficientQuantityModal>
+                <div className='modal'>
+                    <h2>Out of Stock</h2>
+                    <hr />
+                    <p>You are unable to complete this purchase due to insufficient quantity of this product.</p>
+                    <h4>We apologize for any inconvenience.</h4>
+                </div>
+            </InsufficientQuantityModal>
             <InsufficientFundsModal>
                 <div className='modal'>
                     <h2>Insufficient Funds</h2>
                     <hr />
                     <p>You are unable to complete this purchase due to insufficient funds.</p>
                     <p>Your current balance is <span className='modal-span'>${balance.toFixed(2)}</span>.</p>
-                    <p>Would you like to replenish your funds?</p>
+                    <h4>Would you like to replenish your funds?</h4>
                 </div>
             </InsufficientFundsModal>
             <ConfirmPurchaseModal>
@@ -132,7 +152,7 @@ export default function Soda({ soda, balance, childSetBalance }) {
                     <hr />
                     <p>You are purchasing this item for <span className='modal-span'>${soda.cost}</span>.</p>
                     <p>Your new balance will be <span className='modal-span'>${newBalance.toFixed(2)}</span>.</p>
-                    <p>Click the button to confirm your purchase.</p>
+                    <h4>Click the button to confirm your purchase.</h4>
                 </div>
             </ConfirmPurchaseModal>
             <button className='purchase-button' onClick={handleClick}>Purchase Soda</button>
