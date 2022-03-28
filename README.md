@@ -30,6 +30,7 @@
  ### Admin
   - Any individual with admin access can use the 'Admin Login' button to navigate to the admin access panel. (Requires username/password login)
   - Through the admin access panel, the individual is able to edit any information of the existing items, add new items, or completely delete any existing items.
+  - Once logged in, click on 'Sodas' under 'Virtual_Vending_Machine' to access the list of Sodas and edit any information, create new items, or delete any existing items.
 
 ## API Routes
   - '[admin](https://dbaack.pythonanywhere.com/admin)' route returns the admin access panel, which is protected by a username/password login.
