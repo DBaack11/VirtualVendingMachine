@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Represents a Soda object using models.Model
 class Soda(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)

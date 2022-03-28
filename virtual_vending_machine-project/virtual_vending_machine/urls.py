@@ -18,6 +18,7 @@ from django.urls import path
 from virtual_vending_machine import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
+# Three defined url paths for admin access, viewing all soda objects, and viewing a specific soda
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sodas', views.soda_list),

@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Balance({ balance, childSetBalance }) {
 
+    // Arrow function 'replenishFunds' used to reset the value of the balance
+    // in the parent component VendingMachine
     const replenishFunds = () => {
         childSetBalance(4)
     }

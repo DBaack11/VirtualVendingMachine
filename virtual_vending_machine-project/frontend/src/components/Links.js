@@ -7,9 +7,12 @@ export default function Links() {
                 <h2>Links</h2>
                 <hr />
                 <div className='links-button-container'>
-                    <a className='links-button' href='' target='_blank'>View API</a>
+                    <a className='links-button' href='' target='_blank'>Admin Login</a>
                     <p></p>
-                    <a className='links-button' href='https://github.com/DBaack11/VirtualVendingMachine' target='_blank'>View GitHub</a>
+                    <div className='bottom-links-container'>
+                        <a className='links-button' href='' target='_blank'>View API</a>
+                        <a className='links-button' href='https://github.com/DBaack11/VirtualVendingMachine' target='_blank' rel='noreferrer'>View GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
