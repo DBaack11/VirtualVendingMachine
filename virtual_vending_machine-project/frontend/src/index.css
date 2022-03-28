@@ -28,7 +28,7 @@ body {
   font-family: 'Loki Cola Regular';
   font-size: 4rem;
   letter-spacing: 8px;
-  text-shadow: black 2px 4px;
+  text-shadow: black 2px 4px 2px;
 }
 
 
@@ -223,6 +223,7 @@ body {
   box-shadow:  5px 5px 10px #292929;
   text-align: center;
   margin: 10px;
+  padding-bottom: 5px;
   height: 100%;
   max-height: 300px;
 }
@@ -342,5 +343,15 @@ body {
 
   .links-button-container  {
     margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .VendingMachine {
+    max-width: 90%;
+  }
+
+  .RightColumn {
+    width: 90%;
   }
 }
