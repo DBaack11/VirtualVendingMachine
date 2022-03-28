@@ -1,6 +1,5 @@
 import React from 'react';
 import Soda from './Soda';
-import Header from "./Header";
 import { useState } from "react"
 import Balance from './Balance';
 import Links from './Links';
@@ -30,7 +29,7 @@ export default function VendingMachine({ data }) {
 
     return (
         <div>
-            <Header />
+
             <div className='VendingMachineContainer'>
                 <div className='VendingMachine'>
                     {sodas}

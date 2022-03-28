@@ -1,4 +1,5 @@
 import VendingMachine from "./components/VendingMachine";
+import Header from "./components/Header";
 import { useState, useEffect } from "react"
 
 function App() {
@@ -8,13 +9,15 @@ function App() {
 
   // useEffect() hook used to retrieve the list of sodas from the API and store the data
   useEffect(() => {
-    fetch('http://localhost:8000/sodas')
+    // if running locally, change url to 'http://localhost:8000/sodas'
+    fetch('https://dbaack.pythonanywhere.com/sodas')
       .then(response => response.json())
       .then(data => setData(data))
   }, [])
 
   return (
     <div>
+      <Header />
       <VendingMachine data={data} />
     </div>
   );

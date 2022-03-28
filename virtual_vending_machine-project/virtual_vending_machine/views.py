@@ -1,5 +1,3 @@
-from django.forms import SlugField
-from django.http import JsonResponse
 from .models import Soda
 from .serializers import SodaSerializer
 from rest_framework.decorators import api_view
@@ -15,7 +13,7 @@ def soda_list(request):
     if request.method == 'GET':
         sodas = Soda.objects.all()
         serializer = SodaSerializer(sodas, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
 
     # For HTTP request POST, all data sent with the request is serialized into a 'Soda' model object
     if request.method == 'POST':
@@ -39,7 +37,7 @@ def soda_info(request, name):
     # For HTTP request GET, the specific object, identified by the name, is retrieved and converted to JSON
     if request.method == 'GET':
         serializer = SodaSerializer(soda)
-        return JsonResponse(serializer.data)
+        return Response(serializer.data)
 
     # For HTTP request POST, all data sent with the request is serialized into a 'Soda' model object
     elif request.method == 'PUT':

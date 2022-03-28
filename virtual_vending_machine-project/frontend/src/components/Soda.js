@@ -15,7 +15,8 @@ export default function Soda({ soda, balance, childSetBalance }) {
 
     // useEffect() hook used to retrieve the specific soda's data from the API
     useEffect(() => {
-        fetch(`http://localhost:8000/sodas/${soda.name}`)
+        // if running locally, change url to 'http://localhost:8000/sodas/${soda.name}'
+        fetch(`https://dbaack.pythonanywhere.com/sodas/${soda.name}`)
             .then(response => response.json())
             .then(data => setData(data))
     }, [soda.name])
@@ -27,7 +28,9 @@ export default function Soda({ soda, balance, childSetBalance }) {
         },
         withCloseButton: true,
         withControlButton: {
+            type: "default",
             text: "Replenish Funds",
+            customClassName: "modal-button",
             action: () => replenishFunds(),
         },
     });
@@ -39,7 +42,9 @@ export default function Soda({ soda, balance, childSetBalance }) {
         },
         withCloseButton: true,
         withControlButton: {
+            type: "default",
             text: "Confirm Purchase",
+            customClassName: "modal-button",
             action: () => purchaseSoda(),
         },
     });
@@ -63,12 +68,13 @@ export default function Soda({ soda, balance, childSetBalance }) {
                 name: soda.name,
                 description: soda.description,
                 cost: soda.cost,
-                available_quantity: soda.available_quantity - 1
+                available_quantity: availableQuantity - 1
             })
         };
-        fetch(`http://localhost:8000/sodas/${soda.name}`, requestOptions)
+        // if running locally, change url to 'http://localhost:8000/sodas/${soda.name}'
+        fetch(`https://dbaack.pythonanywhere.com/sodas/${soda.name}`, requestOptions)
             .then(response => response.json())
-            .then(data => console.log("API Updated, Available Quantity: " + data.available_quantity))
+            .then(data => console.log(data.name + " | API Updated, Available Quantity: " + (availableQuantity - 1)))
     };
 
     // Arrow function 'purchaseSoda' used to set the user's new balance, download the appropriate JSON file, 
@@ -92,7 +98,8 @@ export default function Soda({ soda, balance, childSetBalance }) {
     // for the attempted purchase and toggles the approriate modal
     const handleClick = () => {
         setNewBalance(parseFloat(balance) - parseFloat(soda.cost))
-        balance === 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
+        const testBalance = parseFloat(balance) - parseFloat(soda.cost)
+        testBalance < 0 ? toggleInsufficientFundsModal() : toggleConfirmPurchaseModal()
     }
 
     return (
@@ -115,7 +122,7 @@ export default function Soda({ soda, balance, childSetBalance }) {
                     <h2>Insufficient Funds</h2>
                     <hr />
                     <p>You are unable to complete this purchase due to insufficient funds.</p>
-                    <p>Your current balance is <span className='modal-span'>${balance}</span>.</p>
+                    <p>Your current balance is <span className='modal-span'>${balance.toFixed(2)}</span>.</p>
                     <p>Would you like to replenish your funds?</p>
                 </div>
             </InsufficientFundsModal>
