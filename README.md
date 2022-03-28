@@ -1,5 +1,5 @@
 # Virtual Vending Machine
- A virtual vending machine implementation built with Python (Django Rest Framework) and React. The frontend and API are deployed with [Vercel](https://vercel.com) and [PythonAnywhere](https://www.pythonanywhere.com), respectively.
+ A virtual vending machine implementation built with Python (Django Rest Framework) and React. The frontend and API are deployed with [Vercel](https://vercel.com) and <a href='https://www.pythonanywhere.com' target='_blank' rel='noreferrer'>PythonAnywhere</a>, respectively.
 
 ## How To Use/Interact
  This project is deployed and hosted online at https://colaco.vercel.app/. The API is deployed and hosted at https://dbaack.pythonanywhere.com/sodas.
